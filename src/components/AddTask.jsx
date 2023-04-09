@@ -1,9 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "./AddTask.css";
-import { useTasks } from "./useTasks";
-export default function AddTask(){
-        const {taskToDo, saveTask} = useTasks();
+export default function AddTask({taskToDo, saveTask}){
         const [newTaskValue, setNewTaskValue] = useState("");
         const handleNewTaskValue = (event) => {
                 setNewTaskValue(event.target.value);

@@ -6,12 +6,12 @@ import Footer from "./components/Footer";
 import { useTasks } from "./components/useTasks";
 
 function App() {
-  const {taskToDo, saveTask} = useTasks();
+  const {taskToDo, saveTask, deleteTasks, editTasks} = useTasks();
   return (
     <div className="App">
         <Header/>
-        <AddTask/>
-        <TaskList todoItems={taskToDo}/>
+        <AddTask taskToDo={taskToDo} saveTask={saveTask}/>
+        <TaskList taskToDo={taskToDo} deleteTasks={deleteTasks} editTasks={editTasks} />
         <Footer saveTask={saveTask}/>
     </div>
   )

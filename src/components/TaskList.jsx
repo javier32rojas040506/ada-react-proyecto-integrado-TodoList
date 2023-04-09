@@ -2,10 +2,10 @@ import React from "react";
 import Task from "./Task";
 function TaskList(props){
     return <ul>
-        {props.todoItems.map( 
+        {props.taskToDo.map( 
             todo => 
             <div key={todo.description}>
-                <Task todo={todo}/> 
+                <Task todo={todo} deleteTasks={props.deleteTasks} editTasks={props.editTasks}/> 
             </div>
             )}
         </ul>

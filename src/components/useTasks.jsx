@@ -7,13 +7,15 @@ function useTasks(){
         setTaskToDo(newTasks);
     }
     const deleteTasks = taskToDelete => {
-        console.log("delete", taskToDelete)
         const newTasksToDo = taskToDo.filter( task => task.description !== taskToDelete.description);
         saveTask(newTasksToDo);
     }
 
-    const editTasks = (taskId, newText) => {
-        console.log("edit",taskId, newText)
+    const editTasks = (taskToEdit, newText) => {
+        const indexOfTask = taskToDo.findIndex( task => task.description === taskToEdit.description);
+        const newTasksToDo = taskToDo;
+        newTasksToDo[indexOfTask].description = newText;
+        saveTask([...newTasksToDo]);
     }
     //Simulating a api function
     React.useEffect(()=>{

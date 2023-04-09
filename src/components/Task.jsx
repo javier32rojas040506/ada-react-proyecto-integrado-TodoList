@@ -1,15 +1,13 @@
 import React from "react";
 import "./Task.css";
-import { useTasks } from "./useTasks";
 
-function Task({todo}){
-    const {deleteTasks, editTasks} = useTasks();
+function Task({todo, deleteTasks, editTasks}){
     return <div className="task">
                 <input type="checkbox"/> 
                 {todo.description}
                 <div>
                     <img alt="edit"
-                    onClick={() => editTasks(todo)} 
+                    onClick={() => editTasks(todo, "Texto por defecto || no hay modal")} 
                     src="https://cdn.discordapp.com/attachments/831560691252068372/1092867472027291799/icons8-edit-24.png"/>
                     <img alt="delte"
                     onClick={() => deleteTasks(todo)}  
