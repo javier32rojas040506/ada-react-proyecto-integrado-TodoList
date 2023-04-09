@@ -1,0 +1,9 @@
+.addTask input {
+    padding: 8px 12px;
+    margin: 6px 6px 6px 0px;
+}
+.addTask button {
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size:large
+}

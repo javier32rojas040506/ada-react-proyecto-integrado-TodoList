@@ -1,4 +1,12 @@
-input {
+.task {
+    margin: 10px;
+    background-color: rgb(194,196,195);
+    border-radius: 2px;
+    display: grid;
+    grid-template-columns: 1fr 5fr 2fr;
+    justify-items: center;
+}
+.task input {
     padding: 8px 12px;
     margin: 6px 6px 6px 0px;
 }
