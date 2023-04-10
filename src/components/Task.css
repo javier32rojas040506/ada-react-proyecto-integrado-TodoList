@@ -7,9 +7,12 @@
     justify-items: center;
 }
 .task input {
-    padding: 8px 12px;
+    place-self: stretch;
     margin: 6px 6px 6px 0px;
 }
+.task_actions {
+    align-self: center;
+} 
 button {
     padding: 8px 12px;
     border-radius: 5px;

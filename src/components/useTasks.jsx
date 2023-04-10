@@ -7,14 +7,14 @@ function useTasks(){
         setTaskToDo(newTasks);
     }
     const deleteTasks = taskToDelete => {
-        const newTasksToDo = taskToDo.filter( task => task.description !== taskToDelete.description);
+        const newTasksToDo = taskToDo.filter( task => task.name !== taskToDelete.name);
         saveTask(newTasksToDo);
     }
 
     const editTasks = (taskToEdit, newText) => {
-        const indexOfTask = taskToDo.findIndex( task => task.description === taskToEdit.description);
+        const indexOfTask = taskToDo.findIndex( task => task.name === taskToEdit.name);
         const newTasksToDo = taskToDo;
-        newTasksToDo[indexOfTask].description = newText;
+        newTasksToDo[indexOfTask].name = newText;
         saveTask([...newTasksToDo]);
     }
     //Simulating a api function

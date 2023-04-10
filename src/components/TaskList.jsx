@@ -4,7 +4,7 @@ function TaskList(props){
     return <ul>
         {props.taskToDo.map( 
             todo => 
-            <div key={todo.description}>
+            <div key={todo.name}>
                 <Task todo={todo} deleteTasks={props.deleteTasks} editTasks={props.editTasks}/> 
             </div>
             )}
