@@ -5,7 +5,7 @@ function TaskList(props){
         {props.taskToDo.map( 
             todo => 
             <div key={todo.name}>
-                <Task todo={todo} deleteTasks={props.deleteTasks} editTasks={props.editTasks}/> 
+                <Task todo={todo} deleteTasks={props.deleteTasks} editTasks={props.editTasks} markTodos={props.markTodos}/> 
             </div>
             )}
         </ul>

@@ -8,11 +8,12 @@ export default function Header({taskToDo, saveTask}){
         const [formData, setFormData] = useState({name:"", description:""})
         const [formError, setFormError] = useState({name:"", description:""});
         const handleSerchTaskValue = event => {
-                setSerachTaskValue(event.target.value); 
+                setSerachTaskValue(event.target.value);
         }
         const handleAddNewTask = event => {
                 event.preventDefault();
                 saveTask([{"name": formData.name,"description":formData.description, "state": false}, ...taskToDo]);
+                setFormData({...formData, name:'', description:''})
                 setOpenModal(false);
         };
         const handleSetNameTask = event =>{
@@ -30,8 +31,8 @@ export default function Header({taskToDo, saveTask}){
         }
         return <div className="addTask">
                 <h1>Todo App</h1>
-                <input type="text"  value={serachTaskValue} onChange={handleSerchTaskValue}/>
-                <button onClick={()=>{setOpenModal(true)}}>+</button>
+                <input type="text"  placeholder="Search a Task" value={serachTaskValue} onChange={handleSerchTaskValue}/>
+                <button  onClick={()=>{setOpenModal(true)}}>+</button>
                 {openModal && 
                 <AddModal>
                         <form onSubmit={handleAddNewTask}>

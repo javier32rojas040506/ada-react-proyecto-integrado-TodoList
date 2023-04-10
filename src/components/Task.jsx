@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Task.css";
 
-function Task({todo, deleteTasks, editTasks}){
+function Task({todo, deleteTasks, editTasks, markTodos}){
     return <div className="task">
-                <input type="checkbox"/> 
+                <input onChange={()=>markTodos(todo, !todo.state)} type="checkbox" checked={todo.state}/> 
                 <div>
                     <h3>{todo.name}</h3>
-                    <p>{todo.description}</p>
+                    <p>{todo.description ||"No description"}</p>
                 </div>
                 <div className="task_actions">
                     <img alt="edit"

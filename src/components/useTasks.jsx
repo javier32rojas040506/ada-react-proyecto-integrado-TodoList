@@ -17,6 +17,13 @@ function useTasks(){
         newTasksToDo[indexOfTask].name = newText;
         saveTask([...newTasksToDo]);
     }
+
+    const markTodos = (taskToMark, newState) => {
+      const indexOfTask = taskToDo.findIndex( task => task.name === taskToMark.name);
+      const newTasksToDo = taskToDo;
+      newTasksToDo[indexOfTask].state = newState;
+      saveTask([...newTasksToDo]);
+    }
     //Simulating a api function
     React.useEffect(()=>{
         setTimeout(()=>{
@@ -43,6 +50,6 @@ function useTasks(){
     };
     }, []);
 
-    return {taskToDo, saveTask, deleteTasks, editTasks}
+    return {taskToDo, saveTask, deleteTasks, editTasks, markTodos}
 };
 export {useTasks}

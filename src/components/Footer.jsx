@@ -1,6 +1,14 @@
-function Footer({saveTask}){
+function Footer({saveTask, taskToDo}){
+    const countTodos = () => {
+        let counterDone = 0;
+        taskToDo.forEach(task => {
+            task.state && counterDone++;
+        });
+        return counterDone;
+    }
     return <>
-            {`You have 2 pending task`} <button onClick={()=>{saveTask([])}}>Clear All</button>
+        {console.log(taskToDo)}
+            {`You have ${countTodos()} pending task of ${taskToDo.length}`} <button onClick={()=>{saveTask([])}}>Clear All</button>
            </>
 }
 export default Footer;
