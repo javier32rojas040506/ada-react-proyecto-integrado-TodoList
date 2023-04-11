@@ -1,16 +1,35 @@
 import React from "react";
-import Header from "./components/Header";
-import TaskList from "./components/TaskList";
-import Footer from "./components/Footer";
-import { useTasks } from "./components/useTasks";
+import { lazy, Suspense } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Menu } from "./components/Menu";
+const Home = lazy( () => import( "./pages/Home"));
+const Tasks = lazy( () => import( "./pages/Tasks"));
+const AboutUs = lazy( () => import( "./pages/AboutUs"));
+
 
 function App() {
-  const {taskToDo, saveTask, deleteTasks, editTasks} = useTasks();
   return (
     <div className="App">
-        <Header taskToDo={taskToDo} saveTask={saveTask}/>
-        <TaskList taskToDo={taskToDo} deleteTasks={deleteTasks} editTasks={editTasks} />
-        <Footer saveTask={saveTask}/>
+        <BrowserRouter>
+          <Menu/>
+          <Routes>
+            <Route path="/" element={
+              <Suspense fallback="loading ...">
+                <Home/>
+              </Suspense>
+            }/>
+            <Route path="/Tasks" element={
+              <Suspense fallback="loading ...">
+                <Tasks/>
+              </Suspense>
+            }/>
+            <Route path="/AboutUs" element={
+              <Suspense fallback="loading ...">
+                <AboutUs/>
+              </Suspense>
+            }/>
+          </Routes>
+        </BrowserRouter>
     </div>
   )
 }
